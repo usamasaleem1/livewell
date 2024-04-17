@@ -20,6 +20,16 @@ export default function Chat() {
       "I recommend scheduling a test for this, it's important.",
       "Let's schedule a follow-up appointment for next week.",
       "Make sure to take the prescribed medication regularly.",
+      "Have you experienced any other symptoms?",
+      "It's important to monitor your progress daily.",
+      "Let me know if you need any further assistance.",
+      "Remember to stay hydrated throughout the day.",
+      "Rest is crucial for your recovery.",
+      "Have you noticed any changes in your condition recently?",
+      "Let's discuss potential treatment options together.",
+      "I'm here to support you through your recovery journey.",
+      "Don't hesitate to reach out if you have any concerns.",
+      "Your health is a top priority, let's address any issues promptly.",
     ],
     Patient: [
       "I have been feeling unwell since yesterday.",
@@ -27,6 +37,16 @@ export default function Chat() {
       "When should I take the medicine?",
       "Is it okay if I schedule my appointment for next month?",
       "I might need assistance with the prescription.",
+      "Should I avoid any specific foods?",
+      "How often should I take the medication?",
+      "Can I exercise while on this medication?",
+      "What are the potential side effects of the treatment?",
+      "I appreciate your help and guidance.",
+      "Could you explain the treatment plan in more detail?",
+      "I'm curious about the recovery timeline for my condition.",
+      "Are there any alternative therapies we could consider?",
+      "I value your expertise in guiding me towards better health.",
+      "Let's work together to ensure my well-being is prioritized.",
     ],
   };
 
@@ -82,7 +102,15 @@ export default function Chat() {
           src={getUserImageUrl(user)}
           style={{ height: "50px", borderRadius: "50%", marginRight: "10px" }}
         />
-        <h1 style={{ textAlign: "left" }}>Chat with {user}</h1>
+        <h1
+          style={{
+            textAlign: "left",
+            marginLeft: "10px",
+            fontWeight: "normal",
+          }}
+        >
+          Chatting with <strong>{user}</strong>
+        </h1>
       </div>
       <div
         style={{

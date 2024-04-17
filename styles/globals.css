@@ -53,10 +53,10 @@ div {
 }
 
 input[type="text"] {
-  padding: 10px;
+  padding: 11px;
   font-size: 16px;
-  border: 2px solid #dddddd00;
-  border-radius: 5px;
+  border: 1px solid #FFFFFF65;
+  border-radius: 10px;
   width: 100%;
   /* Adjust width for side-by-side with button */
   display: inline-block;
@@ -64,21 +64,21 @@ input[type="text"] {
   /* Removed bottom margin */
   vertical-align: top;
   /* Align with button */
-  background-color: #3f3f3f;
+  background-color: #0000001a;
   color: #fff;
 }
 
 button {
   background: #007AFF;
   color: #fff;
-  border: none;
+  border: 1px solid #FFFFFF65;
   padding: 10px 20px;
   font-size: 16px;
   border-radius: 12px;
   /* Circular button */
   cursor: pointer;
   transition: background 0.3s;
-  display: inline-block;
+  /* display: inline-block; */
   margin-left: 10px;
   /* Space between text input and button */
   vertical-align: top;
