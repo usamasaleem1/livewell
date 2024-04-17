@@ -7,18 +7,18 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState("");
 
-  // Define typical responses for both doctors and patients
+  // Define typical responses for both Doctors and Patients
   const replies = {
-    doctor: [
+    Doctor: [
       "Yes, what seems to be the problem?",
       "How long have you been feeling this way?",
       "I recommend scheduling a test for this, it's important.",
       "Let's schedule a follow-up appointment for next week.",
       "Make sure to take the prescribed medication regularly.",
     ],
-    patient: [
+    Patient: [
       "I have been feeling unwell since yesterday.",
-      "Thank you, doctor, for the advice!",
+      "Thank you, Doctor, for the advice!",
       "When should I take the medicine?",
       "Is it okay if I schedule my appointment for next month?",
       "I might need assistance with the prescription.",
@@ -28,8 +28,8 @@ export default function Chat() {
   // Determine user type upon user being available.
   const userType = user
     ? user.startsWith("Dr.")
-      ? "doctor"
-      : "patient"
+      ? "Doctor"
+      : "Patient"
     : null;
 
   const handleMessageSubmit = () => {

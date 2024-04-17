@@ -140,3 +140,16 @@ button:focus {
 div {
   text-align: left;
 }
+
+.hover-grow-shadow {
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 25px;
+}
+
+.hover-grow-shadow:hover {
+  transform: scale(1.03);
+  /* Makes the div grow slightly */
+  box-shadow: 0 0 10px rgba(70, 183, 239, 0.5);
+  border-radius: 25px;
+  /* Adds a shadow effect */
+}
