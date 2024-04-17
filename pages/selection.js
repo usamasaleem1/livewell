@@ -48,6 +48,7 @@ export default function Selection() {
               display: "block",
               textDecoration: "none",
               color: "inherit",
+              outline: "1px solid #FFFFFF65",
               transition: "transform 0.3s, box-shadow 0.3s",
               "&:hover": {
                 transform: "scale(1.05)",
