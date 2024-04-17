@@ -86,12 +86,12 @@ export default function Chat() {
       </div>
       <div
         style={{
-          height: "400px",
+          height: "auto",
           overflowY: "auto",
-          backgroundColor: "#FFFFFF0E",
+          backgroundColor: "#FFFFFF00",
           padding: "10px",
-          borderRadius: "10px",
-          boxShadow: "0 2px 15px 5px #00000012",
+          borderRadius: "15px",
+          boxShadow: "0 2px 15px 5px #00000000",
         }}
       >
         {messages.map((message, index) => (
@@ -99,24 +99,45 @@ export default function Chat() {
             key={index}
             style={{
               textAlign: message.user === "You" ? "right" : "left",
-              position: "relative", // Add this line to position the image relative to the parent div
+              borderRadius: "20px",
+              boxShadow: "0 0 15px rgba(0, 0, 0, 0.3)",
+              outline:
+                message.user === "You"
+                  ? "1px solid #FFFFFF65"
+                  : "1px solid #5AA0EF78",
+              backgroundColor:
+                message.user === "You" ? "#FFFFFF0B" : "#08080827",
             }}
           >
+            <strong>{message.user}</strong>
             {message.user !== "You" && (
               <img
-                src={`https://randomuser.me/api/portraits/men/${message.imgIndex}.jpg`}
+                src={`https://randomuser.me/api/portraits/men/${message.imgIndex}.jpg`} // Using `imgIndex` from the message
                 style={{
-                  width: "30px",
-                  height: "30px",
-                  borderRadius: "50%",
-                  margin: "0 10px",
-                  position: "absolute", // Add this line to position the image absolutely
-                  top: -10, // Add this line to anchor the image to the top
-                  left: -10, // Add this line to anchor the image to the left
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "100%",
+                  float: "left", // Align the image to the left if the user is not "You"
+                  marginRight: "10px",
+                  boxShadow: "0 0 15px rgba(0, 0, 0, 0.2)",
                 }}
               />
             )}
-            <strong>{message.user}: </strong>
+            {message.user !== "You" && (
+              <span
+                style={{
+                  fontSize: "0.8em",
+                  color: "white",
+                  marginLeft: "10px",
+                }}
+              >
+                {new Date(message.timestamp).toLocaleTimeString([], {
+                  hour: "numeric",
+                  minute: "2-digit",
+                })}
+              </span>
+            )}
+            <br />
             <span>{message.text}</span>
           </div>
         ))}
@@ -127,7 +148,12 @@ export default function Chat() {
           type="text"
           placeholder="Type your message..."
           value={currentMessage}
-          onChange={(e) => setCurrentMessage(e.target.value)}
+          onChange={(e) => {
+            setCurrentMessage(e.target.value);
+            if (e.key === "Enter" || e.keyCode === 13) {
+              handleMessageSubmit();
+            }
+          }}
           style={{ flexGrow: 1, marginRight: "10px" }}
         />
         <button onClick={handleMessageSubmit}>Send</button>
