@@ -3,9 +3,14 @@ import { useRouter } from "next/router";
 
 export default function Chat() {
   const router = useRouter();
-  const { user } = router.query;
+  const { user, imgIndex } = router.query;
   const [messages, setMessages] = useState([]);
   const [currentMessage, setCurrentMessage] = useState("");
+
+  // Function to generate image URL
+  const getUserImageUrl = () => {
+    return `https://randomuser.me/api/portraits/men/${imgIndex}.jpg`; // Construct the URL using the passed index
+  };
 
   // Define typical responses for both Doctors and Patients
   const replies = {
@@ -37,6 +42,7 @@ export default function Chat() {
 
     const newMessage = {
       user: "You",
+      imgIndex: imgIndex, // assuming you are also showing your image, modify as needed
       text: currentMessage.trim(),
       timestamp: new Date().toISOString(),
     };
@@ -49,6 +55,7 @@ export default function Chat() {
         replies[userType][Math.floor(Math.random() * replies[userType].length)];
       const responseMessage = {
         user: user,
+        imgIndex: imgIndex, // Include the image index in the response message
         text: response,
         timestamp: new Date().toISOString(),
       };
@@ -70,7 +77,13 @@ export default function Chat() {
 
   return (
     <div style={{ width: "100%", maxWidth: "600px", margin: "auto" }}>
-      <h1 style={{ textAlign: "left" }}>Chat with {user}</h1>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <img
+          src={getUserImageUrl(user)}
+          style={{ height: "50px", borderRadius: "50%", marginRight: "10px" }}
+        />
+        <h1 style={{ textAlign: "left" }}>Chat with {user}</h1>
+      </div>
       <div
         style={{
           height: "400px",
@@ -84,12 +97,31 @@ export default function Chat() {
         {messages.map((message, index) => (
           <div
             key={index}
-            style={{ textAlign: message.user === "You" ? "right" : "left" }}
+            style={{
+              textAlign: message.user === "You" ? "right" : "left",
+              position: "relative", // Add this line to position the image relative to the parent div
+            }}
           >
-            <strong>{message.user}:</strong> <span>{message.text}</span>
+            {message.user !== "You" && (
+              <img
+                src={`https://randomuser.me/api/portraits/men/${message.imgIndex}.jpg`}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  borderRadius: "50%",
+                  margin: "0 10px",
+                  position: "absolute", // Add this line to position the image absolutely
+                  top: -10, // Add this line to anchor the image to the top
+                  left: -10, // Add this line to anchor the image to the left
+                }}
+              />
+            )}
+            <strong>{message.user}: </strong>
+            <span>{message.text}</span>
           </div>
         ))}
       </div>
+
       <div style={{ display: "flex", marginTop: "10px" }}>
         <input
           type="text"

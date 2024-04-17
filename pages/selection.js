@@ -41,7 +41,9 @@ export default function Selection() {
           <a
             className="hover-grow-shadow other-classes"
             key={index}
-            href={`/chat?user=${encodeURIComponent(user)}`}
+            href={`/chat?user=${encodeURIComponent(user)}&imgIndex=${
+              index + 1
+            }`} // Pass the index to Chat.js
             style={{
               display: "block",
               textDecoration: "none",
@@ -75,12 +77,11 @@ export default function Selection() {
                   marginRight: "20px",
                   boxShadow: "0 0 15px rgba(0, 0, 0, 0.2)",
                 }}
-              />{" "}
+              />
               <span style={{ fontSize: "20px", fontWeight: "light" }}>
-                {" "}
-                {user}{" "}
-              </span>{" "}
-            </li>{" "}
+                {user}
+              </span>
+            </li>
           </a>
         ))}{" "}
       </ul>{" "}
