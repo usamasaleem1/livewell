@@ -1,0 +1,60 @@
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5em;
+    color: #33333300;
+    background-color: #00000000;
+    border-radius: 0;
+}
+
+.buttonContainer {
+    margin-top: 20px;
+}
+
+.doctorButton,
+.patientButton {
+    flex: 1;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+    outline: 1px solid #ffffffc2;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+
+    .doctorButton,
+    .patientButton {
+        flex: none;
+        width: 100%;
+    }
+}
+
+.doctorButton {
+    background-color: #4caf50;
+}
+
+.doctorButton:hover {
+    background-color: #45a047;
+}
+
+.patientButton {
+    background-color: #2196f3;
+}
+
+.patientButton:hover {
+    background-color: #1e88e5;
+}
