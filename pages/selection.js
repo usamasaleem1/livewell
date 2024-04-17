@@ -10,12 +10,12 @@ export default function Selection() {
       ? [
           "Dr. John Smith",
           "Dr. Michael Johnson",
-          "Dr. Sarah Lee",
-          "Dr. Emily Brown",
-          "Dr. Alex White",
-          "Dr. Samantha Anderson",
-          "Dr. David Wilson",
-          "Dr. Olivia Harris",
+          "Dr. David Lee",
+          "Dr. Matthew Brown",
+          "Dr. Andrew White",
+          "Dr. Daniel Anderson",
+          "Dr. James Wilson",
+          "Dr. Robert Harris",
         ]
       : [
           "Michael Smith",
